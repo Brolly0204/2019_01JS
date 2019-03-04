@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // Git 就是一个命令行工具
+    // GitHub 一个项目托管平台（微软收购）
+    // 通过git命令 将本地代码 推送（上传）到GitHub 保存起来
+
+   // 通过git每次提交都会生成一个版本（历史记录）你可以通过命令来回切换版本
+    var a = 1 // adavdfadf1123
+
+
+    var b = 2 // adsasdfadf213
+
+    // git
+    // 追踪记录
+    // 分支管理（多人协作开发）
+
+    // git仓库的概念（就是一个项目文件夹）
+
+    // 在本地创建一个Git仓库
+    // 1.新建一个文件夹 
+    // 2.在当前的目录下打开命令窗口  右键文件夹 -> 选择 git bash here
+    // 3.把这个文件夹初始化Git仓库 输入命令 "git init"，会在当前目录下生成.git文件夹
+    // 4.在每个git仓库文件夹下 都会有一个.git（隐藏文件夹）
+
+    // 创建远程仓库
+
+    // 将本地仓库和远程仓库关联起来
+    // git remote add 别名(origin) 远程仓库地址
+    // git remote add origin https://github.com/Brolly1224/vue1.git
+
+    // 查看当前仓库（已关联远程仓库的列表）
+    // git remote -v
+
+    // git 三个区域
+    // 工作区 本地仓库文件夹
+    // 暂存区 缓存当前文件
+    // 历史区 当文件提交到历史区 就会生成历史记录 版本号
+
+    // git status
+    // 如果文件名称是红色 说明当前文件在 工作区
+
+    // git add 1.txt 将文件添加到暂存区 git add ./-A 将所有文件添加到暂存区
+
+    // 将暂存区文件 提交的历史区
+    // git commit -m "提交1.txt文件" 
+
+
+    // 配置用户名和邮箱
+    // git config --global user.name "wenli"
+
+    // 邮箱最好是 GitHub绑定邮箱地址
+    // git config --global user.email "Brolly1224@126.com"
+
+    // git status 没有出现文件
+    // 工作区和历史区 是同步的
+
+    // git log 查看提交记录
+
+    // git log --online
+
+    // 推送到远程仓库
+    // git push 远程仓库名称  master(主干)    
+    
+
+    // 只要后面仓库有修改
+
+    // 就重复以下步骤
+    // git add .
+    // git commit -m "提交描述"
+    // git push origin master
+
+
+    // 第二种方式 
+    // 先在GitHub上创建一个 远程仓库
+    // 克隆到本地
+
+    // git clone <仓库地址>
+
+    // git remote -v
+    // 本地仓库会默认和远程仓库建立联系
+
+    // git pull origin master 拉取远程仓库并且合并
+
+    // GitLab
+    // 第二种 把远程已有的仓库克隆下来
+    // git clone 项目地址
+
+    // 提交修改
+
+    // git add .
+    // git commit -m "此次修改描述"
+    // git pull origin master (拉取合并目前远程最新的代码)
+    // git push origin master（把最终代码 提交到远程）
+
+
+    // git pull origin master
+    
+    // 继续开发
+    // git add .
+    // git commit -m "此次修改描述"
+    // git pull origin master (拉取合并目前远程最新的代码)
+    // git push origin master（把最终代码 提交到远程）
+
+  </script>
+</body>
+</html>

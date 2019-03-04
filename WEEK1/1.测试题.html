@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      .bg0 {
+        background-color: pink;
+      }
+      .bg1 {
+        background-color: red;
+      }
+
+      .hover {
+        background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="div1" class="box">
+      <div>111</div>
+      <div>222</div>
+      <div>333</div>
+    </div>
+    <script>
+      // 数据类型
+      // 基本数据类型
+      // Number Boolean null undefined String
+
+      // 引用数据类型
+      // 对象数据类型 普通对象 {} RegExp Array Date Math
+      // 函数数据类型 function
+
+      // 检测数据类型
+      // typeof
+      // constructor
+      // instanceof
+      // Object.prototype.toString.call()
+
+      // 基本数据类型与引用数据类型区别
+      // 操作的是具体的值（存储在栈内存）
+      // 操作的是引用地址（存储在堆内存）
+
+      // 函数接收实参两种方式
+      // 1.形参变量
+      // 2.arguments实参集合
+
+      // function fn(a, b) {
+      //   console.log(a, b)
+      //   console.log(arguments) // 实参集合
+      // }
+      // fn(10, 20)
+
+      // 定时器
+      // setTimeout(延迟执行)
+      // setInterval(每间隔一段时间执行一次)
+
+      // 获取元素
+      var box1 = document.getElementById("div1");
+      console.log(box1);
+      // 注意getElementsByClassName 返回的是一个元素集合 需要通过索引将元素取出来
+      var box2 = document.getElementsByClassName("box")[0];
+      console.log(box2);
+
+      // 创建元素
+      var p = document.createElement("p");
+      p.innerHTML = "我是p标签";
+      // 添加到body底部
+      document.body.appendChild(p);
+
+      // 获取所有子元素 (nodeType 1 nodeName 大写的标签名)
+      console.log(box1.children);
+
+      // 获取所有子节点（文本 注释 元素）
+      console.log(box1.childNodes);
+
+      // 字符串截取
+      // slice
+      // substr
+      // substring
+
+      // 字符串的替换
+      // replace('a', 'c')
+
+      // 数组末尾添加
+      // push(x)
+      // arr[arr.length] = x
+      // splice(arr.length, 0, x)
+
+      // 删除末尾
+      // pop()
+      // arr.length--
+      // splice(-1)
+
+      // 循环遍历
+      // for循环
+      // forEach
+      // map
+
+      // 排序
+      // arr.sort(function(a, b) {
+      //   return a - b
+      // })
+
+      // 第n项 索引 n - 1
+      // 第m项 索引 m - 1
+      // slice(n - 1, m - 1)
+
+      // 从n到m随机整数
+      // Math.round(Math.random() * (m - n) + n)
+
+      // Math.max()
+      // Math.min()
+
+      // 累加求和
+
+      function sum(n) {
+        if (n <= 0) {
+          return 0;
+        }
+
+        if (n % 15 === 0) {
+          return n + sum(n - 1);
+        }
+
+        return sum(n - 1);
+      }
+      sum(100);
+
+      var total = 0;
+      // for (var i = 1; i <= 100; i++) {
+      //   if (i % 15 === 0) {
+      //     total += i
+      //   }
+      // }
+
+      // for (var i = 100; i >= 1; i--) {
+      //   if (i % 15 === 0) {
+      //     total += i
+      //   }
+      // }
+
+      // var arr = [2, 2, 3, 1, 3, 1, 2, 1]
+      // for (var i = 0; i < arr.length - 1; i++) {
+      //   var cur = arr[i]
+      //   for (var j = i + 1; j < arr.length;) {
+      //     cur === arr[j] ? arr.splice(j, 1) : j++
+      //   }
+      // }
+      // console.log(arr)
+
+      // arr.sort(function (a, b) {
+      //   return a - b
+      // })
+      // console.log(arr)
+
+      function createCode(len) {
+        len = len || 4;
+
+        var str =
+          "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        var codeStr = "";
+
+        while (codeStr.length < len) {
+          var ind = Math.round(Math.random() * (str.length - 1));
+          var char = str[ind];
+          if (!codeStr.includes(char)) {
+            codeStr += char;
+          }
+        }
+        return codeStr;
+      }
+      createCode();
+
+      // 获取
+      var oUl = document.getElementById("oUl");
+      var list = document.getElementsByTagName("li");
+
+      for (var i = 0; i < list.length; i++) {
+        var oLi = list[i];
+        oLi.cn = oLi.className = `bg${i % 2}`;
+        oLi.ind = i;
+
+        oLi.onmouseover = function() {
+          this.className = "hover";
+        };
+
+        oLi.onmouseout = function() {
+          this.className = this.cn;
+        };
+
+        oLi.onclick = function() {
+          alert(this.ind);
+        };
+      }
+    </script>
+  </body>
+</html>
