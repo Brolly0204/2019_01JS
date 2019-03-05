@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 变量提升
+      // 在JS代码执行之前，把var和function声明的变量 进行提前声明和定义
+
+      // 对于带var 提前声明 并且赋值为默认值 undefined
+      // 对于带function 提前声明 并且赋值为函数
+
+      // 变量提升 只发生在当前作用域
+      // 最先开始 全局作用域中进行变量提升
+      // 函数执行的时候 函数作用域中进行变量提升
+
+      // 变量提升优先级
+      // 函数提升 > 形参变量提升（函数中） > 变量提升
+
+      // console.log(a)
+      // var a
+      // function a() {
+
+      // }
+
+      // function fe(n) {
+      //   console.log(n)
+      //   var n
+      //   // function n() {}
+      // }
+      // fe(100)
+
+      // 1.不会对值进行变量提升
+      // console.log(fe)
+      // var fe = function ff() {}
+      // function foo() {
+      //   console.log(f1)
+      //   return function f1() {}
+      // }
+      // foo()
+
+      // 自执行函数不参与变量提升
+      // console.log(f2) // error: f2 is not defined
+      // ;(function f2(f) {
+      //   // console.log(f)
+      //   // var f
+      //   console.log(f2)
+      //   f2()
+      // })(1000);
+
+      // var obj = {
+      //   ff: function fr() {
+      //     console.log(fr)
+      //     fr()
+      //   }
+      // }
+      // obj.ff()
+      // console.log(fr)
+
+      // 2.带var和不带var
+      // 声明一个变量 同时也会给window上添加一个属性
+      // 不带var 不会参与变量提升 
+
+      // delete 
+      // 删除不了用var声明的变量 var a = 1  delete a false
+      // 可以删除不带var添加的变量 b = 2  delete b true
+      
+    </script>
+  </body>
+</html>

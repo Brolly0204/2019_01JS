@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 1.变量提升时 不会对值进行预解释
+      // var foo = undefined
+
+      // var foo
+      // 等号右边是一个值 只在代码执行时进行赋值操作
+
+      // 当代码执行到这一行的时候 才进行赋值
+      // var foo = function() {}
+      // console.log(foo)
+
+      // foo = 123
+
+      // console.log(123)
+
+      // console.log(fe)
+      // function fe() {
+
+      // }
+      // console.log(fe)
+
+
+      // 2.函数声明高于一切 （JS中把函数称为一等公民）
+
+      // var fe;
+
+      // function fe() {}
+
+      // 3.重复声明函数时候 后面的会把前面的覆盖掉
+
+      // function fe() {
+      //   console.log('1111')
+      // }
+
+      // console.log(fe);
+
+      // function fe() {
+      //   console.log('2222')
+      // }
+
+      // console.log(fe);
+
+      // function fe() {
+      //   console.log('3333')
+      // }
+      // console.log(fe);
+
+      // 4.带var不会重复声明 声明一次就够了
+
+      // 变量提升 var n = undefined
+
+      console.log(n) // undefined
+
+      var n = 1  // 代码执行到这一行 才进行赋值操作
+      console.log(n) // 1
+
+      // 代码执行时就忽略掉 变量声明部分
+      // var n
+      // var n
+      // var n
+      // var n
+      // var n
+      console.log(n) // 1
+
+
+    /*
+     1.变量提升时 不会对值进行预解释
+     2.函数声明高于一切 （JS中把函数称为一等公民）
+     3.重复声明函数时候 后面的会把前面的覆盖掉
+     4.带var不会重复声明 声明一次就够了
+
+     注意：代码执行到那一行 才会进行赋值操作
+    */
+    
+    // 变量提升时 赋值为undefined
+    console.log(a) // undefined
+    
+    // 执行到这一行 赋值为1
+    var a = 1 // a = 1
+    console.log(a) // 1
+    </script>
+  </body>
+</html>

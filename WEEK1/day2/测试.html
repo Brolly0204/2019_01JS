@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 1.if条件中也需要进行变量提升
+      // 2.声明一个全局变量 也是给window上添加一个属性
+      // console.log(a) // undefined
+      // if ('a' in window) {
+      //   var a = 2019
+      // }
+      // console.log(a) // 2019
+
+      // 1.函数中声明变量 是私有变量 全局中声明的变量 全局变量
+      // 2.给一个不带var的变量赋值 相当于给window上添加一个这样的属性
+      // 3.作用域链
+      // var a = 1000
+      // function fe() {
+      //   // b = 20
+      //   // var a = b
+      //   var a = b = 20
+      // }
+      // fe()
+      // console.log(window.b)
+      // console.log(a) // 在全局中查找一个叫a的变量
+      
+
+      // function fn(n) {
+      //   return function(a) {
+      //     a++;
+      //     n += a
+      //     console.log(n);
+      //   };
+      // }
+      // var f = fn(10);
+      // f(1);
+      // f(2);
+
+      // function fn(n) {
+      //   n = n;
+      //   return function(a) {
+      //     a++;
+      //     console.log((n += a));
+      //   };
+      // }
+      // var f = fn(10);
+      // f(1);
+
+      // var num = 20;
+      // var obj = {
+      //   num: 30,
+      //   fn: (function(num) {
+      //     num += 5;
+      //     return function() {
+      //       console.log(num);
+      //     };
+      //   })(num)
+      // };
+
+      // obj.fn(num);
+    </script>
+  </body>
+</html>

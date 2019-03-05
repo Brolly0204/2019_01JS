@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    console.log(foo)
+    foo() // 666
+    function foo() {
+      console.log(111)
+    }
+    foo() // 666
+
+    function foo() {
+      console.log(222)
+    }
+    foo() // 666
+
+    // 代码执行到这一行 重新赋值为函数
+    var foo = function () {
+      console.log(333)
+    }
+    foo() // 333
+
+    function foo() {
+      console.log(666)
+    }
+    foo() // 333
+    foo() // 333
+
+
+
+    // function foo() {
+    //   console.log(666)
+    // }
+
+
+
+    // foo()
+    // foo()
+    // foo()
+
+    // var foo = function () {
+    //   console.log(333)
+    // }
+
+    // foo()
+    // foo()
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 作用域（栈内存）：供JS代码执行的环境
+
+    // 全局作用域 一打开页面时形成的
+    // 函数作用域 函数执行的时候形成的
+    // 块级作用域 let const 
+
+    // 变量提升 只发生在当前作用域中
+
+    // 1.最先开始 对全局作用域进行变量提升
+    // 2.函数执行的时候 对函数作用域进行变量提升
+       
+    // function fe() {
+    //   console.log(bar)
+    //   var bar = 100
+
+    //   function fo() {}
+    // }
+
+
+    // function fo(a) {
+    //   console.log(a)
+    //   function a() {}
+    //   console.log(a)
+    // }
+    // fo(100)
+
+    // 形参a和var a 是同一个
+    // function ff(a) {
+    // console.log(a)
+    //   var a
+    //   function a() {}
+    // }
+    // ff(100)
+
+
+    // 函数执行
+    // 1.形参赋值 变量提升（函数声明高于一切）
+    // 2.代码从上到下执行
+
+    function foo(n) {
+      console.log(n) // 1
+      console.log(m) // undefined
+      var m = 100
+    }
+    foo(1)
+
+    
+  </script>
+</body>
+</html>

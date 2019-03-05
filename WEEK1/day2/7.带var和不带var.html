@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 赋值时 不带var 不会参加变量提升 会给window上添加一个属性 
+
+    // 因为a没有参加变量提升
+    // console.log(a) // error: a is not defined
+    // // 给window添加一个属性叫a 属性值 100
+    // a = 100
+    // console.log(a)
+    // console.log(window.a) // window是可以省略的
+
+    // function fe() {
+    //   t = 10
+    // }
+    // fe()
+
+    // 2.全局中 声明一个变量 同时也会给window上添加一个属性
+    // console.log(window.t)
+
+    
+    var n = 10
+    window.n = 2019
+    console.log(n)
+    console.log(window.n)
+
+    // function fe() {
+    //   console.log('fefe')      
+    // }
+    // fe()
+    // window.fe()
+
+   // 都会参加变量提升
+    // console.log(h, e)
+    // var h = 1, e = 2;
+    // console.log(h, e)
+
+    // console.log(p)
+    // console.log(w) // 相当于给window上添加一个叫w的属性 但不参加变量提升
+    var p = w = 2
+    console.log(w)
+    console.log(window.w)
+
+    // w = 2;
+    // var p = w;
+
+
+  </script>
+</body>
+</html>

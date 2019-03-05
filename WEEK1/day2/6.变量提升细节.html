@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 1.if条件中的代码 不管条件是否成立 都会进行预解释
+    // console.log(a) // undefined
+    // console.log(i) // undefined
+    // console.log(o) // undefined
+
+    // 参加全局中变量提升
+    if (false) { // if语句属于全局中代码，所以会参加全局作用域中的变量提升
+      var a
+    }
+    // 参加全局中变量提升
+    for (var i = 0; i < 3; i++) {
+      var o
+    }
+
+    // 函数中的变量 参加的是函数作用域中变量提升
+    // console.log(num)
+    function fe() {
+      var num
+    }
+    // 总之：变量提升只发生在当前作用域中
+
+
+    // 2.return 右边的值不会进行变量提升
+    // return 下面代码虽然不执行 但会进行变量提升
+    function fn() {
+      // console.log(n) // undefined
+      // console.log(ff) // 报错原因：这个值并没有参加函数中的变量提升
+      return function ff() {}
+      var n = 123 // 虽然不执行，但会进行变量提升
+    }
+    fn()
+
+    // console.log(bar) // 报错原因：这个值并没有参加全局中的变量提升
+    // var fe = function bar() {}
+
+    // 3.在if语句中 声明函数时 不管条件是否成立 都会参加变量提升 赋值为undefined
+
+    // console.log(f1) // undefined
+
+    // 代码不规范（不能在if语句中 通过function声明函数 可以使用表达式方式）
+    // if (false) {
+    //   function f1() {}
+    //   var f2 = function() {}
+    // }
+
+    // console.log(f1) // undefined
+
+    // if (false) {
+    //   var f2 = function() {console.log(111)}
+    // } else {
+    //   var f2 = function() {console.log(222)}
+    // }
+
+    // 1.if条件中的代码 不管条件是否成立 都会进行预解释
+    // 2.return 右边的值不会进行变量提升 return 下面代码虽然不执行 但会进行变量提升
+    // 3.在if语句中 声明函数时 不管条件是否成立 都会参加变量提升 赋值为undefined
+  </script>
+</body>
+</html>

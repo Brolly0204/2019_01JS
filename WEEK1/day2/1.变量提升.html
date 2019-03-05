@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // JS引擎 就是用来解释执行JS代码
+    // JS引擎分为两个步骤 
+    // 1.解释：先全盘扫描当前作用域中所有代码
+    // 2.执行：从上到下执行JS代码
+
+    // 变量提升就是在JS解释阶段发生的
+
+    // 变量提升（预解释）：把声明的变量，带var和function关键字的 进行提前声明或者定义（赋值）
+
+    // 对于带var的 提前声明 并且赋值为默认值 undefined
+    // 对于带function的 提前声明并且定义 赋值为函数体
+
+    // 变量提升结束之后 代码从上到下开始执行
+
+    // 作用域（栈内存）供JS代码执行的环境
+    // 当我打开页面时 会形成一个全局作用域 供全局JS代码执行
+   
+    // 全局整个script
+
+    // 作用域
+    // 1.全局作用域 （提供一个全局对象 window）
+    // 2.函数作用域
+    // 3.块级作用域
+
+    // var a = undefined
+
+    // 变量提升 把变量声明 提升到作用域顶端
+
+    
+
+    console.log(fo)
+    fo()
+
+   // 函数定义部分
+   function fo() {
+      console.log('fo')
+    }
+ 
+    console.log(a)
+    var a = 'zhufeng'
+
+    // 预解释
+    // var a = undefined
+
+    // 赋值操作 只发生在代码执行到这一行时
+    // var a = 123
+    // console.log(a)
+    // 执行的时候就跳过了 声明的代码
+    // var a
+    // var a
+    // a = 100
+    // console.log(a)
+    // var a = 300
+    // console.log(a)
+
+
+    // 由于变量提升时 进行了默认赋值
+    // console.log(a) // undefined
+    // var a = 123
+    // console.log(a) // 123
+
+
+
+    // console.log(fe)
+    // var fe
+
+    // var a = 123
+    // var a
+    // console.log(a)
+
+    // console.log(fe)
+    // function fe() {
+
+    // }
+    // console.log(title)
+    // var title = 'hello'
+  </script>
+</body>
+</html>

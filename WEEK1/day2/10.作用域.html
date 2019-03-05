@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 作用域链（查找变量机制）：当查找一个变量时，先看当前作用域是否声明过这个变量，
+      // 如果没声明过 就去上级作用域进行查找 一直查找到window（全局作用域）为止
+      // 如果window上也没有 就会报错：Uncaught ReferenceError: n is not defined
+      // console.log(n)
+
+      // 会形成三个作用域
+      // 全局作用域（顶级）
+      // fe() 形成一个作用域
+      // fo() 形成一个作用域
+
+      // 如何来查找上级作用域
+      // 就看当前函数是在哪定义的 不要管是在哪执行
+      // fo的上级是fe  fe上级是全局
+
+      var num = 100;
+      function fe() {
+        var num = 200;
+        return function() {
+          console.log(num);
+        };
+      }
+      var fo = fe();
+      fo();
+
+
+     // fo作用域 => fe作用域 => window作用域
+
+     // 只有在作用域当中 才有变量这个概念（作用域中才会进行变量声明）
+     function ff() {
+      var n = 123
+     }
+
+    //  let nm = 'f0'
+
+     function f1() {
+       return function f2() {
+         return function f3() {
+           return function f4() {
+             console.log(nm)
+           }
+         }
+       }
+     }
+     var f4 = f1()()()
+     console.log(f4)
+     f4()
+    </script>
+  </body>
+</html>

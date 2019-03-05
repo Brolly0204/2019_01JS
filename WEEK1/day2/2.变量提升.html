@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+    // 变量提升 JS代码执行之前，把带var和带function的变量 提前声明或者定义
+    // 变量提升结束之后 JS代码开始从上到下执行
+
+    // 对于带var 提前声明并且赋值为默认值undefined
+    // 对于带function 提前声明并且定义为函数体
+
+    console.log(fe)
+
+    console.log(title) // undefined
+
+    // 代码执行的时候 才会进行赋值操作 
+    var title = 'zhufeng'
+
+    console.log(title) // 'zhufeng'
+
+    // 代码执行的时候 会忽略掉 函数定义部分
+    function fe() {
+     console.log('fefe')
+    }
+
+    console.log(f)
+  </script>
+</body>
+</html>

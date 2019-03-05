@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 一个函数里 返回一个内部函数 这个内部函数可以访问上级变量
+    // 内部函数就叫闭包
+    // function fe() {
+    //   var num = 123 // 这个变量会被一直缓存下来
+    //   return function fn () {
+    //     num ++
+    //     console.log(num)
+    //   }
+    // }
+    // // console.log(num) // 正常情况下 外层作用域不能访问私有变量
+
+    // var f = fe()
+    // f()
+    // f()
+    // f()
+    // f()
+
+    // 闭包这一种机制 可以将变量缓存
+
+    // total缓存在全局中变量
+    
+    // var total = 0
+
+    // function add() {
+    //   total ++
+    //   console.log(total)
+    // }
+
+    // add()
+    // add()
+    // add()
+    // add()
+    // add()
+  </script>
+</body>
+</html>
