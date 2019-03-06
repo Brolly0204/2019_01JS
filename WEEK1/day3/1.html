@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 变量提升：
+    // 就是在JS代码执行之前，全盘扫描当前作用域的代码，把带var和带function声明的变量，
+    // 进行提前声明和定义
+    // 对于带var变量 赋值为默认值undefined
+    // 对于带function变量 赋值为函数体
+
+    // 作用域链(查找变量的机制)
+    // 在当前作用域中遇到一个变量，先看有没有在当前作用域中声明过，
+    // 如果没有就去上级作用域查找一直找到window(顶级作用域)为止
+    // 如果window上也没有就会报 引用错误：x is not defined
+    
+    // 如何查找上级作用域 就看在哪定义的 跟在哪执行没有关系
+
+    // var let const 区别
+    // 1.let const 不存在变量提升
+    // 2.let const 声明的变量 不会给window添加属性
+    // 3.let const 不能重复声明
+    // 4.let const 在代码块儿里 会形成块级作用域
+    // 5.“暂时性死区”（简称TDZ）在在代码块中，用let const声明变量之前，是不能使用变量的。
+    // const 定义的值是不能修改 但是引用类型里面的值是可以修改的
+
+    var num = 100
+    function f1() {
+      return function f2() {
+        console.log(num)
+      }
+    }
+
+    var ff = f1()
+    ff()
+  </script>
+</body>
+</html>

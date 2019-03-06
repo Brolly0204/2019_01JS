@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 闭包 就是一个函数 内部返回一个子函数
+
+    // 全局变量 全局作用域中声明的变量
+    // 私有变量 私有作用域（函数作用域、块级作用域）中声明的变量
+
+    // 私有作用域可以访问全局中的变量
+    // var num = 100
+    // function fe() {
+    //   console.log(num)
+    // }
+    // fe()
+
+    // 全局作用域不能访问私有作用域中的变量
+    // function fn() {
+    //   var title = 'hello'
+    // }
+    // fn()
+
+    // console.log(title)
+    
+    function fn() {
+      var title = 123
+      var a = 100
+      var id = 24
+      return function() { // 这个内部函数 称为闭包
+        title++
+        console.log(title, id, a)
+      }
+    }
+
+    var ff = fn()
+    ff()
+    ff()
+    ff()
+    ff()
+
+    // function sum() {
+    //   var n = 123
+    // }
+    // sum()
+    // sum()
+
+
+
+    // 闭包 可以访问私有变量 缓存这些变量
+
+
+    // // 尽量不定义全局变量 多人协作时 容易变量冲突（模块化开发）
+    // let num = 123
+
+
+
+    // // 很久
+    // let num = 200
+
+    // 小白
+    // var xiaobai = (function () {
+    //  var id = 1
+    //  var n = 2
+    //  var c = 3
+    //  return function() {
+    //      n += c
+    //  }
+    // })()
+
+    // 小明添加功能模块
+    // var xiaoming = (function() {
+    //   var id = 2
+    //   var w = 3
+
+    //   function add() {
+    //     id += 2
+    //     console.log(id)
+    //   }
+    //   return {
+    //     add: add
+    //   }
+    // })()
+
+    // console.log(xiaoming)
+    // xiaoming.add()
+    
+
+
+  </script>
+</body>
+</html>

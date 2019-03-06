@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 打开页面时 形成一个全局栈内存
+    // 函数执行时形成一个栈内存
+    // 函数执行时的栈内存 通常在函数执行完就会销毁
+
+    // 当变量进入栈内存时 就会进行标记
+    function add() {
+      var a = 1 // 标记变量a
+      var b = 2 // 标记变量b
+      // console.log(a + b) // 3
+    }
+    
+    add() // 函数执行完代码就会标记清除
+    // 栈内存就会被回收
+
+    // 什么情况下会造成不销毁的栈内存
+    // 对于函数形成的栈内存，
+    // 当里面 返回的引用类型（堆内存）被外部变量所占用时，
+    // 这个栈内存就不能被销毁 同时这个堆内存也不能被销毁
+
+    // 内存泄漏 创建一块内存 但没有使用
+
+    var obj = {id: 123}
+
+    // Eslint代码风格检查 检测出来哪些变量定义了 但没使用
+
+
+    // function fe() {
+    //   var a = 1
+    //   var b = 2
+    //   console.log(a + b)
+    // }
+    // fe()
+
+    function fn() {
+      let num = 100
+      return {
+        id: num
+      }
+    }
+
+    // obj1占用了 fn里面的 堆内存 形成了不销毁的条件
+    // var obj1 = fn()
+
+    // // fn每执行一次 就会形成一个新的栈内存
+    // fn()
+
+
+    function fn() {
+      let num = 1
+      return function () {
+        num++
+        console.log(num)
+      }
+    }
+    
+    // 函数只要执行一次 就会形成一个新的栈内存
+    let f1 = fn()
+    f1() // 2
+    f1() // 3
+
+    let f2 = fn()
+    f2() // 2
+
+    // let f2 = fn()
+    // f2() // 2
+    // f2() // 3
+    // f2() // 4
+    // f2() // 5
+
+    // let f3 = fn()
+    // f3() // 2
+  </script>
+</body>
+</html>

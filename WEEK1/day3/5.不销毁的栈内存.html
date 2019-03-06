@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 函数执行的时候，返回一个引用数据类型 并且被外部变量接收占用
+
+      function fe() {
+        return {};
+      }
+      // 总共会形成三个不销毁的栈内存 和 三个不销毁的堆内存
+
+      // f1 => deap 01
+      var f1 = fe(); // 形成一个新stack 01  return deap 01
+
+      // f2 => deap 02
+      var f2 = fe(); // 形成一个新的stack 02  return deap 02
+
+      // f3 => deap03
+      var f3 = fe(); // 形成一个新的stack 03  return deap 03
+
+      // fe()
+
+      // 只要是栈内存中的堆内存 被外部变量接收占用 这个栈内存就不能被销毁
+      // var o1
+      // function fn() {
+      //   var obj = {id: 2}
+      //   o1 = obj
+      //   console.log(o1 === obj)
+      //   // return obj
+      // }
+      // // fn执行形成栈内存会销毁
+      // fn()
+
+      // let obj = {}
+
+      // function fn() {
+      //   var num = 0
+      //   var obj1 = {
+      //     id: 2,
+      //     add() {
+      //       num++
+      //       console.log(num)
+      //     }
+      //   }
+      //   obj.head = obj1
+      // }
+      // fn()
+      // console.log(obj.head)
+      // obj.head.add()
+      // obj.head.add()
+
+      // let obj = {}
+
+      // function fn() {
+      //   let n = 0
+
+      //   return {
+      //     add() {
+      //       n++
+      //       console.log(n)
+      //     }
+      //   }
+      // }
+      // obj.head = fn()
+      // console.log(obj.head)
+
+      let obj = {};
+
+      function fn() {
+        let n = 0;
+
+        obj.head = {
+          add() {
+            n++;
+            console.log(n);
+          }
+        };
+      }
+      fn();
+      console.log(obj.head);
+      
+      obj.head.add()
+      obj.head.add()
+      obj.head.add()
+      
+
+      // 闭包就是利用不销毁的栈内存 来缓存变量
+      function sum() {
+        var n = 123
+        return function() {
+          n++
+          console.log(n)
+        }
+      }
+      var f = sum()
+      f()
+      f()
+      f()
+    </script>
+  </body>
+</html>

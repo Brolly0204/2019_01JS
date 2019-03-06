@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // JS引擎中 分为两种内存
+    // 栈内存（stack）供JS代码来执行，存储基本数据类型
+    // 堆内存（deap）存储引用类型里的数据
+
+    // 基本数据类型 是有固定大小的
+    // var num = 'a'
+   
+    // 引用类型 它的大小不固定
+    // var obj = { id: 1}
+    // obj.num1 = 123
+    // obj.num2 = 123
+    // obj.num3 = 123
+    // obj.num4 = 123
+
+    // 函数执行的时候 就会开辟一块儿栈内存
+    // 创建一个对象时候 比如数组 普通对象 定义一个函数 产生一个堆内存
+    var obj1 = {}
+
+    // 栈内存
+    // 全局作用域就是一个栈内存 供全局中JS代码执行
+    // 函数作用域（栈内存）供函数作用域中代码来执行
+
+    // 全局作用域 当关闭页面时候 就会自动销毁
+    // 函数作用域 当函数执行完 就会自动销毁
+
+    // 堆内存
+    
+    // 手动销毁
+    // var obj2 = {id: 1}
+    // obj2 = null // 空指针对象
+
+    // 对于堆内存 浏览器是查看当前这内存的引用数是几
+    // 当这个堆内存引用数为0时 就会将这块内存回收
+    var obj3 = {id: 24} // 引用数1
+    var obj2 = obj3 // 引用数2
+    
+    // obj3引用了一个新的对象内存
+    obj3 = {}
+
+    obj3 = null
+
+  </script>
+</body>
+</html>

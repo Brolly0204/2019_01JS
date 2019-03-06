@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">点击+</button>
+    <script>
+      const btn = document.getElementById("btn");
+
+      // 全局就是一个不销毁的栈内存
+
+      // 利用全局不销毁的栈内存来缓存变量
+      //  let n = 0
+      //  btn.onclick = function() {
+      //    n++
+      //    this.innerHTML = n
+      //  }
+
+      // 自己创建一个不销毁的栈内存
+      // 利用闭包 形成一个不销毁的栈内存 来缓存变量n
+      btn.onclick = (function() {
+        let n = 0;
+
+        return function() {
+          n++;
+          console.log(n);
+          this.innerHTML = n
+        };
+      })();
+
+      ;(function() {
+        let n = 0
+
+        btn.onclick = function () {
+          n += 2;
+          console.log(n);
+          this.innerHTML = n
+        }
+
+      })()
+
+      ;(function() {
+        let n = 0
+
+        function add() {
+          n += 2;
+          this.innerHTML = n
+        }
+
+        btn.onclick = add
+
+      })()
+
+      // 慎用闭包 因为闭包会占用内存
+      
+      //  function fe() {
+      //    var n = 0
+      //    return function() {
+      //     console.log(n)
+      //    }
+      //  }
+      //  var ff1 = fe()
+      //  ff1()
+
+      //  var fn = (function() {
+      //    var n = 0
+      //    return function() {
+      //      console.log(n)
+      //    }
+      //  })()
+
+      // 每点击一次 就会形成一个全新的栈内存 定义一个新的变量n = 0
+      // btn.onclick = function() {
+      //   let n = 0
+      //   console.log('start', n)
+      //   n++
+      //   console.log('end', n)
+      // }
+    </script>
+  </body>
+</html>
