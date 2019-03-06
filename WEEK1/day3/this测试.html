@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // var len = 5;
+      // var fn = function() {
+      //   console.log(this);
+      // };
+      // var main = {
+      //   fn: function(fn) {
+      //     console.log(this);
+      //     fn();
+      //     arguments[0]();
+      //   },
+      //   len: 10
+      // };
+      // main.fn(fn);
+
+      /////////////////////////////////////////////////////////////////////////////////////////////
+
+      //  function fn1() {
+      //      console.log(this === ary);
+      //  }
+      //  function fn2() {
+      //      console.log(this);
+      //  }
+      //  function fn3() {
+      //  }
+      //  function fn4() {
+      //  }
+      //  var ary = [fn1, fn2, fn3, fn4];
+      //  ary[1]();
+      //  var arry = ary[1];
+      //  var arry = function fn2 (){
+      //      console.log(this);
+      //  };
+      //  console.log(arry);
+      //  arry();
+
+      /////////////////////////////////////////////////////////////////////////////////////////////
+      // var num = 5;
+      // var obj = {
+      //   num: 4,
+      //   fn: (function(num) {
+      //     num++;
+      //     this.num++;
+      //     var num = 2;
+      //     return function() {
+      //       num++;
+      //       this.num++;
+      //       console.log(num);
+      //     };
+      //   })()
+      // };
+      // var fn = obj.fn;
+      // fn();
+      // obj.fn();
+      // console.log(this.num, obj.num);
+    </script>
+  </body>
+</html>

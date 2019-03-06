@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    // var i= 0
+    // 先输出i的值 然后在自身加1
+    // console.log(i++) // 0
+    // console.log(i)
+
+    // var a = 0
+    // 先自身加1 然后再输出
+    // console.log(++a) // 1
+    // console.log(a)
+
+   
+
+    // i++ ++i 本质上都是让i的值 自身加1
+
+    // 只是在进行运算 取值的时候 加1的时机不一样
+
+    var i = 0
+    // 先用i的值和20进行运算求和，运算完后 再让i的值自身加1
+    var total1 = 20 + i++
+    console.log(total1) // 20
+    console.log(i) // 1
+
+    var l = 0
+    // 先让l自身加1 再和20进行求和运算
+    var total2 = 20 + ++l
+    console.log(total2) // 21
+    console.log(l) // 1
+
+    var k = 0
+    console.log(k++) // 0
+    console.log(k) // 1
+
+    var t = 0
+    console.log(++t) // 1
+    console.log(t) // 1
+
+  </script>
+</body>
+</html>

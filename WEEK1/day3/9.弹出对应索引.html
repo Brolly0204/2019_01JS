@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="btnGroup">
+      <button>item1</button>
+      <button>item2</button>
+      <button>item3</button>
+      <button>item4</button>
+      <button>item5</button>
+    </div>
+    <script>
+      const btnGroup = document.getElementById("btnGroup");
+      const btnList = btnGroup.getElementsByTagName("button");
+      // [btn, btn, btn, btn, btn]
+      console.log(btnList);
+
+      // 利用不销毁栈内存 来缓存每一次循环时i的值
+
+      // 每循环一次就会 创建一个自执行函数 并且 自动执行 形成一个不销毁的栈内存
+      // 在这个不销毁的 栈内存中都有一个私有变量n 来缓存 此时i的值
+
+      // 用let 每次循环都会 创建一个隐形的作用域 定义一个新的变量i
+
+      var _fn = function(i) {
+        btnList[i].onclick = function() {
+          console.log(i)
+        }
+      }
+
+      for (var i = 0; i < btnList.length; i++) {
+        _fn(i)
+      }
+
+      function fe() {
+        return {
+
+        }
+      }
+
+      // 不销毁栈内存
+      // 只要函数中返回一个引用类型（对象、数组、函数） 被外部变量占用
+      function f1() {
+        return {}
+      }
+      var a = f1()
+
+      function f2() {
+        return []
+      }
+      var b = f2()
+
+      function f3() {
+        // 缓存变量
+        return function() {} // 闭包
+      }
+      var c = f3()
+
+      // 不销毁栈内存就是闭包（闭包指的是 返回的那个内部函数）
+      // 闭包就是不销毁栈内存
+
+
+      // for (let i = 0; i < btnList.length; i++) {
+      //   btnList[i].onclick = function() {
+      //     console.log(i);
+      //   };
+      // }
+
+      // for (var i = 0; i < btnList.length; i++) {
+      //   (function(i) {
+      //     btnList[i].onclick = function() {
+      //       console.log(i);
+      //     };
+      //   })(i);
+      // }
+
+      // var i = 0
+      // for (; i < btnList.length; i++) {
+
+      //   btnList[i].onclick = (function() {
+      //     var n = i // 0 1 2...
+
+      //     return function() {
+      //        console.log(n)
+      //     }
+
+      //   })()
+      // }
+
+      // var i = 0
+      // for (; i < btnList.length; i++) {
+
+      //   // 形参变量也是 私有变量
+      //   ;(function(n) {
+      //     // 将此时变量i的值 缓存给私有变量n
+
+      //     btnList[n].onclick = function() {
+      //        console.log(n)
+      //     }
+
+      //   })(i)
+      // }
+
+      // var i = 0
+      // for (; i < btnList.length; i++) {
+
+      //   // 形参变量也是 私有变量
+      //   btnList[i].onclick = (function(n) {
+      //     // 将此时变量i的值 缓存给私有变量n
+
+      //     return function() {
+      //        console.log(n)
+      //     }
+
+      //   })(i)
+      // }
+
+      // var i = 0
+      // for (; i < btnList.length; i++) {
+
+      //   btnList[i].onclick = (function() {
+      //     // 将此时变量i的值 缓存给私有变量n
+      //     var n = i
+      //     return function() {
+      //        console.log(n)
+      //     }
+      //   })()
+      // }
+
+      // 自定义属性
+      // var i = 0
+      // for (; i < btnList.length; i++) {
+      //   btnList[i].ind = i
+      //   btnList[i].onclick = function() {
+      //     // console.log(i)
+      //     console.log(this.ind)
+      //   }
+      // }
+    </script>
+  </body>
+</html>

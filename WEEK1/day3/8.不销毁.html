@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">+</button>
+    <script>
+      // 当栈内存里的堆内存被外部占用 就会形成不销毁栈内存
+
+      // function fn() {
+
+      //   return {}
+      // }
+      // fn()
+
+      // var total = 0
+      // btn.onclick = function() {
+      //    total++
+      //    this.innerHTML = total
+      // }
+
+      // btn.onclick = (function() {
+      //     var total = 0
+      //     return function() {
+      //       total++
+      //       this.innerHTML = total
+      //     }
+      // })()
+
+      // (function() {
+      //   var total = 0;
+      //   btn.onclick = function() {
+      //     total++;
+      //     this.innerHTML = total;
+      //   };
+      // })();
+
+      function fn() {
+        var total = 3
+        return function() {
+          total++;
+          this.innerHTML = total;
+        };
+      }
+
+      btn.onclick = fn()
+      console.log(btn.onclick)
+    </script>
+  </body>
+</html>

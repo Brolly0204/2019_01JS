@@ -38,6 +38,12 @@
 
     var ff = f1()
     ff()
+
+
+    fe() // 在函数定义部分之前就能执行 因为发生了变量提升
+    function fe() {
+      console.log('fe')
+    }
   </script>
 </body>
 </html>
