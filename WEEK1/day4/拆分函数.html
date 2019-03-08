@@ -84,41 +84,20 @@
         })(i);
       }
 
+      // 清空样式
       function clearStyle() {
         for (var k = 0; k < oli.length; k++) {
           oli[k].className = "";
           odiv[k].className = "";
         }
       }
-
+      
+      // 负责天添加选中样式
       function select(i) {
         oli[i].className = "active";
         odiv[i].className = "active";
       }
 
-      // let
-      for (let i = 0; i < oli.length; i++) {
-        oli[i].onclick = function() {
-          for (var k = 0; k < oli.length; k++) {
-            oli[k].className = "";
-            odiv[k].className = "";
-          }
-          this.className = "active";
-          odiv[i].className = "active";
-        };
-      }
-
-      // for(var i = 0 ; i < oli.length ; i++){
-      //   oli[i].op = i
-      //   oli[i].onclick = function(){
-      //     for(var k = 0 ; k <oli.length ; k++){
-      //       oli[k].className = ""
-      //       odiv[k].className = ""
-      //     }
-      //     this.className = "active"
-      //     odiv[this.op].className = "active"
-      //   }
-      // }
     </script>
   </body>
 </html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3 id="h3">我是h3</h3>
+    <script>
+      // ES6 中对象简洁写法
+
+      // let obj = {
+      //   // fn: fn
+      //   fn // fn属性名：fn变量 相当于 fn: fn
+      // }
+      // console.log(obj)
+      // let num = 200
+      // let obj = {
+      //   num, // num: num
+      //   fn, // fn: fn 给obj这个对象添加一个属性名为fn，属性值是fn变量存储的值
+      //   id: 123,
+      //   fe() { // 给对象添加一个叫fe的属性 属性值是一个函数
+      //     console.log('fe')
+      //   }
+      //   // fe: function() {
+      //     // console.log('fe')
+      //   // }
+      // }
+      // console.log(obj)
+
+      // 全局作用域中this指向的就是window
+      // console.log(this) // this === window
+
+      // 主要就是 存在于函数中
+      // this 行为主体 谁让这个函数执行
+
+      // 1.对于普通函数中的this，就看它执行的时候前面有没有点，
+      // 如果有点，点前面是谁this就是谁，如果没有点默认是window
+
+      // function fn() {
+      //   console.log('fn', this)
+      // }
+      // fn() // window window.fn() 相当于通过window让这个函数执行的
+
+      // let obj = { fn }
+      // console.log(obj.fn === fn)
+
+      // obj.fn() // this => obj
+      // window.fn() // this => window
+      // fn() // this => window
+
+      // function fn() {
+      //   console.log('fn', this)
+      // }
+
+      // let obj = {
+      //   fn,
+      //   f2() {
+      //     console.log('f2', this) // this => obj
+      //     this.fn() // obj.fn() this => obj
+      //   },
+      //   fe() {
+      //     fn() // window.fn()
+      //   }
+      // }
+
+      // // obj.fe() // window
+      // obj.f2()
+
+      // 1.普通函数中的this, 就看函数执行的时候 前面有没有点，
+      // 点前面是谁this就是谁，否则是window
+
+      // let obj = {
+      //   fe() {
+      //     console.log(this);
+      //   }
+      // };
+
+      // let fn = obj.fe;
+      // // fn();
+
+      // let obj1 = {
+      //   fe() {
+      //     this.id = '24'
+      //     console.log('obj1', this)
+      //   },
+      //   data: {
+      //     ofo: {
+      //       f1() {
+      //         console.log(this === obj1.data.ofo);
+      //         this.id = 24
+      //         console.log('ofo', this)
+      //       }
+      //     }
+      //   }
+      // };
+      // obj1.fe()
+
+      // obj1.data.ofo.f1();
+
+      // 3.自执行函数中的this 永远是window
+
+      // ;(function() {
+      //   console.log('this', this)
+      // })()
+
+      // function fo() {
+      //   (function() {
+      //     console.log("this", this);
+      //   })();
+      // }
+
+      // fo();
+
+      // let obj2 = {
+      //   bar: (function() {
+      //     console.log("this", this);
+      //     return 123
+      //   })()
+      // };
+      // console.log(obj2.bar)
+
+      // 事件函数中的this 就是当前绑定事件的元素对象
+      // h3.onclick = function() {
+      //   // console.log(this) // h3
+      //   // console.log(this === h3)
+      //   foo() // window
+      // }
+     
+     // 注意 跟在哪执行没有关系
+      // h3.onclick = foo
+      
+      // function foo() {
+      //   console.log('foo', this)
+      // }
+
+      // let foo = h3.onclick
+      // foo()
+
+      // console.log(typeof h3.onclick)
+      // h3.onclick()
+
+      // let h4 = {
+      //   name: 'h4',
+      //   onclick() {
+      //     console.log(this)
+      //   }
+      // }
+      // h4.onclick()
+
+      // 全局中的this 指向的是window
+      // 普通函数中的this，就看执行的时候前面有没有点 点前面是谁this就是谁，否则就是window
+      // 自执行函数中的this 指向的是window
+      // 事件函数中的this 指向的是当前绑定事件的元素对象
+
+      // 关于函数中的this谁 跟在哪里执行没有关系
+      // 始终坚定不移的 牢记上面几条
+     
+      // 回调函数 把一个函数传到另一个函数里面 让它执行
+      // setTimeout(function() {
+      //   console.log(this) // window
+      // }, 1000)
+
+      // 对于回调函数 在内部怎么执行 不能确定
+
+      // const arr = [1, 2, 3]
+      // arr.sort(function(a, b) {
+      //   console.log(this)
+      //   return b - a
+      // })
+
+      // function each(item) {
+      //   console.log(item, this)
+      // }
+      // arr.forEach(each)
+
+
+      // function bor(callback) {
+      //   // callback()
+      //   var obj = {fn: callback }
+      //   obj.fn()
+      //   obj.fn()
+      //   obj.fn()
+      // }
+
+      // bor(function() {
+      //   console.log(this)
+      // })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 变量提升 在JS解释阶段（JS代码执行之前），把带var和带function的变量，进行提前声明或者定义
+      // 对于带var 赋值为默认值 undefined
+      // 对于带function 赋值为函数体
+
+      // console.log(fe) // function fe() {}
+
+      // console.log(a) // undefined
+      // var a = 1
+
+      // function fe() {
+      //   console.log('hello')
+      // }
+
+      // 1.let const 不会发生变量提升
+      // console.log(a) // a is not defined
+      // let a = 1
+      // console.log(a) // 1
+
+      // 2.let const 不能重复声明
+
+      // var a = 13
+
+      // var a = 100
+
+      // let b = 1
+
+      // let b = 200
+
+      // 3.let const 声明的变量 不会给window上添加属性
+      // let text = 'text'
+      // console.log(text)
+      // console.log(window.text) // undefined
+
+      // 当我们 使用var 或function 声明的变量 同时也是给window上添加一个这样的属性
+      // var title = "hello";
+      // title;
+      // console.log(window.title);
+
+      // // window.fe === fe
+      // function fe() {
+      //   console.log("fe");
+      // }
+      // fe();
+      // window.fe();
+
+      // 4.let const 在代码块中 会形成块级作用域
+
+      // if () {
+
+      // }
+
+      // let arr = []
+      // for (let i = 0; i < 5; i++) {
+      //   arr[i] = function() {
+      //     console.log(i)
+      //   }
+      // }
+      // console.log('end', i)
+      // arr[0] = function () {console.log(i)}
+      // arr[1] = function () {console.log(i)}
+      // arr[2] = function () {console.log(i)}
+      // arr[3] = function () {console.log(i)}
+      // arr[4] = function () {console.log(i)}
+
+      // arr[0]()
+      // arr[1]()
+      // arr[2]()
+
+      // 作用域(栈内存) （供JS代码执行的环境，并且是用来存储基本数据类型）
+      // 全局作用域 当打开页面时 首先浏览器会为全局代码 开辟一个栈内存
+      // 函数作用域 当函数执行的时候 为函数体里的代码 开辟的一个栈内存
+      // 块级作用域 在代码块中{} 使用let const 形成的栈内存
+
+      // 作用域链（查找变量的机制）在当前作用域中 遇到一个变量 先看是不是自己私有的，
+      // 如果不是就去上级作用域进行查找，一直查找到window（全局作用域）上为止，
+      // 如果window上也没有就 报错：xxx is not defined
+
+      // var a = 123
+      // function fn(a) { // 形参也是私有变量
+      //   console.log(a)
+      //   var a = 200
+      // }
+      // fn(2019)
+
+      // 全局变量 在全局中 声明过的变量
+      // 私有变量 在私有作用域（函数、块级）中 声明过的变量
+
+      // 函数执行过程
+      // 1.形成一个私有作用域
+      // 2.形参赋值 变量提升
+      // 3.代码从上到下执行
+
+      // 函数中声明的变量 和 形参 都是私有变量
+
+      // function fe(a, b) {
+      //   let c = 'c'
+      //   function f(){}
+      // }
+
+      // 堆栈内存
+      // 堆内存 就是用来存储引用类型的值
+      // 栈内存 供JS代码执行 存储基本数据类型的值
+
+      // 不销毁的栈内存
+      // 在函数中执行的时候 返回一个引用类型（普通对象、数组、函数），并且被外部变量接收引用
+
+      // function f1() {
+      //   return {}
+      // }
+
+      // let ff1 = f1()
+
+      // function f2() {
+      //   return []
+      // }
+
+      // let ff2 = f2()
+
+
+      // function f3() {
+      //   let num = 100
+      //   return function() {
+      //     console.log(num++)
+      //   } // 把这个内部函数称为闭包
+      // }
+
+      // let ff3 = f3()
+    </script>
+  </body>
+</html>

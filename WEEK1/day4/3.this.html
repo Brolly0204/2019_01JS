@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 函数的一个新的写法 把function 关键字省略
+      // 在箭头函数中 不存在arguments
+      // this
+
+      // const fe = (a) => {
+      //   // 函数体
+      //   return a
+      // }
+
+      // const fe = (a, b) => {
+      //   return a + b
+      // }
+
+      // const fe = (a, b) => a + b;
+      
+      // 编译成如下
+      // var fe = function fe(a, b) {
+      //   return a + b;
+      // };
+
+      // console.log(fe(100, 200));
+
+      // 当只有一个形参时候 小括号是可以省略的 
+      // const say = msg => console.log(msg)
+      // var res = say('nihao')
+      // console.log(res)
+      
+      // let say1 = msg => console.log(msg)
+
+
+      // 在箭头函数中 不存在arguments
+      // 剩余参数 ...变量名
+      // const fn = (...list) => {
+      //   console.log(list) // [1, 2, 3, 4]
+      // }
+      // fn(1, 2, 3, 4)
+      // a 接收的是第一个实参 b接收是第二个实参 list接收是剩余的所有实参
+      const fn = (a, b, ...list) => {
+        console.log(a, b, list) // 1 2 [3, 4]
+      }
+      fn(1, 2, 3, 4)
+
+      // 扩展运算符 ...对象名
+      console.log(...[1, 2, 3])
+
+
+      // 箭头函数中的this 是当前所在作用域中的this
+      // 箭头函数中没有this 它的this就是所在作用域中的this（上级中的this）
+      // 箭头函数中this 需要看上级作用域中this是谁
+
+      const ff1 = () => console.log(this)
+      // ff1() // window
+
+      // const obj = {
+      //   fn: () => {
+      //     console.log(this) // window
+      //   },
+      //   time: function () {
+      //     console.log(this) // window
+      //     // setTimeout(function() {
+      //     //   console.log(this) // window
+      //     // }, 1000)
+
+      //     setTimeout(() => {
+      //       console.log(this) // obj
+      //     }, 1000)
+
+      //   }
+      // }
+      // obj.fn()
+      // obj.time()
+      // var time = obj.time
+      // time()
+
+      const obj = {
+        time: () => {
+          console.log(this) // window
+
+          setTimeout(() => {
+            // console.log(this) // window
+          }, 1000)
+
+        }
+      }
+      obj.time()
+
+      // 全局中的this 指向的是window
+      // 普通函数中的this，就看执行的时候前面有没有点 点前面是谁this就是谁，否则就是window
+      // 自执行函数中的this 指向的是window
+      // 事件函数中的this 指向的是当前绑定事件的元素对象
+      // 箭头函数中没有this this指向的是上级作用域中的this
+
+      // 关于函数中的this谁 跟在哪里执行没有关系
+      // 始终坚定不移的 牢记上面几条
+      
+      // 箭头函数中this 是无法修改的
+      const ff = () => {
+        console.log(this)
+      }
+      ff.call(obj)
+
+      const f2 = function () {
+        console.log(this)
+      }
+      f2.call(obj)
+
+      
+
+
+    </script>
+  </body>
+</html>

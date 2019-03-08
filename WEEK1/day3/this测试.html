@@ -8,17 +8,18 @@
   </head>
   <body>
     <script>
-      // var len = 5;
+      // var length = 5;
       // var fn = function() {
-      //   console.log(this);
+      //   console.log(this); // window  arguments
+      //   console.log(this.length) // window.len 5 arguments.length 1
       // };
       // var main = {
       //   fn: function(fn) {
-      //     console.log(this);
-      //     fn();
-      //     arguments[0]();
+      //     console.log(this); // main
+      //     fn(); // this => window
+      //     arguments[0](); // this => arguments arguments.0()
       //   },
-      //   len: 10
+      //   length: 10
       // };
       // main.fn(fn);
 
@@ -35,33 +36,35 @@
       //  function fn4() {
       //  }
       //  var ary = [fn1, fn2, fn3, fn4];
-      //  ary[1]();
+      //  ary[1](); // this => ary  ary.0()
+
       //  var arry = ary[1];
       //  var arry = function fn2 (){
       //      console.log(this);
       //  };
-      //  console.log(arry);
-      //  arry();
+      //  arry(); // window
 
       /////////////////////////////////////////////////////////////////////////////////////////////
-      // var num = 5;
-      // var obj = {
-      //   num: 4,
-      //   fn: (function(num) {
-      //     num++;
-      //     this.num++;
-      //     var num = 2;
-      //     return function() {
-      //       num++;
-      //       this.num++;
-      //       console.log(num);
-      //     };
-      //   })()
-      // };
-      // var fn = obj.fn;
-      // fn();
-      // obj.fn();
-      // console.log(this.num, obj.num);
+      var num = 5; // 6 7
+      var obj = {
+        num: 4, // 5 6
+        fn: (function(num) { // num = undefined => NaN => 2 => 3 => 4
+          num++; // undeinfed++
+          this.num++; // window.num++
+          var num = 2; // num = 2
+          return function() {
+            num++;
+            this.num++;
+            console.log(num); // 3 4 5
+          };
+        })()
+      };
+
+      var fn = obj.fn;
+      fn(); // 3
+      obj.fn(); // 4
+      obj.fn(); // 5
+      console.log(this.num, obj.num); // 7 6
     </script>
   </body>
 </html>
