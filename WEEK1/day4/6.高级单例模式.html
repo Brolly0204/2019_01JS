@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="flightTicket.queryTicket()">机票</button>
+
+    <button onclick="bussTicket.queryTicket()">汽车票</button>
+
+    <button onclick="trainTicket.queryTicket()">火车票</button>
+
+    <button onclick="boatTicket.queryTicket()">轮船票</button>
+    <script>
+      // 分为三个模块 （机票、汽车票、火车票）
+
+      // 同一命名空间下 属性之间调用可以直接使用this
+      // 高级单例模式 把每个对象包在一个函数作用域中 里面创建的变量都是私有变量
+
+      const flightTicket = (function() {
+        // 创建很多私有变量
+        let id = 123
+
+        const checkCity = function() {
+          console.log("查询城市");
+        }
+
+        const queryTicket = function () {
+            console.log("查询飞机票");
+            console.log("没有机票");
+        }
+
+        const init = function() {
+          this.checkCity();
+          this.queryTicket();
+        }
+
+        return {
+          checkCity,
+          queryTicket,
+          init
+        };
+      })();
+
+      flightTicket.init()
+    
+      const trainTicket = (function() {
+        let id = 123
+        return {
+          checkCity() {
+            console.log("查询城市");
+          },
+          queryTicket() {
+            console.log("查询飞机票");
+            console.log("没有机票");
+          },
+          init() {
+            // this => flightTicket
+            this.checkCity();
+            this.queryTicket();
+          }
+        };
+      })();
+    </script>
+  </body>
+</html>

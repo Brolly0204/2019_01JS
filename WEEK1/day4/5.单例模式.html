@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="flightTicket.queryTicket()">机票</button>
+
+    <button onclick="bussTicket.queryTicket()">汽车票</button>
+
+    <button onclick="trainTicket.queryTicket()">火车票</button>
+
+    <button onclick="boatTicket.queryTicket()">轮船票</button>
+    <script>
+      // 分为三个模块 （机票、汽车票、火车票）
+
+      // 同一命名空间下 属性之间调用可以直接使用this
+      // 飞机票
+      const flightTicket = {
+        checkCity() {
+          console.log("查询城市");
+        },
+        queryTicket() {
+          console.log("查询飞机票");
+          console.log('没有机票')
+
+          let hasTicket = false;
+
+          // 如果没有飞机票 做汽车
+          // 调用其他命名空间下的属性方法
+          if (!hasTicket) {
+            busTicket.queryTicket();
+          }
+        },
+        init() {
+          // this => flightTicket
+          this.checkCity();
+          this.queryTicket();
+        }
+      };
+
+      // 汽车票
+      const busTicket = {
+        checkCity() {
+          console.log("查询城市");
+        },
+        queryTicket() {
+          console.log("查询汽车票");
+        },
+        init() {
+          this.checkCity();
+          this.queryTicket();
+        }
+      };
+      // busTicket.init()
+
+      // 火车票
+      const trainTicket = {
+        checkCity() {
+          console.log("查询城市");
+        },
+        queryTicket() {
+          console.log("查询火车票");
+        },
+        init() {
+          // 入口
+          this.checkCity();
+          this.queryTicket();
+        }
+      };
+      // trainTicket.init()
+
+      // 轮船票
+      const boatTicket = {
+        checkCity() {
+          console.log("查询城市");
+        },
+        queryTicket() {
+          console.log("查询轮船票");
+        }
+      };
+
+      flightTicket.init();
+    </script>
+  </body>
+</html>

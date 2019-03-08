@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 更好的多人协作开发 可扩展性 可维护性
+
+    // 单例模式
+    const guofeng = {
+      eat() {
+        console.log('湘菜')
+      },
+      drink() {
+        console.log('酸奶')
+      }
+    }
+   
+    // 高级单例模式
+    const zhangce = (function() {
+       function eat() {
+         console.log('锦州烧烤')
+       }
+       function drink() {
+         console.log('啤酒')
+       }
+       return {
+         eat,
+         drink
+       }
+    })()
+  </script>
+</body>
+</html>

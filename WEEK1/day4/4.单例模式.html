@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="flightTicket.queryTicket()">机票</button>
+
+    <button onclick="bussTicket.queryTicket()">汽车票</button>
+
+    <button onclick="trainTicket.queryTicket()">火车票</button>
+
+    <button onclick="boatTicket.queryTicket()">轮船票</button>
+    <script>
+      // 分为三个模块 （机票、汽车票、火车票）
+
+      // 查询 城市选择 日期选择
+
+      // 多人协作 开发同一个页面 不同板块
+      // 都创建了 多个全局变量 （JS中尽量少创建全局变量 因为容易冲突）
+
+      // 单例模式 以对象形式进行分组 避免多人协作时 发生冲突 （命名空间 namespace）
+
+      // 使用的时候
+      // 根据命名空间.属性名
+
+      // flightTicket busTicket trainTicket boatTicket
+      // 这些一个一个对象 就是所谓命名空间 彼此互不影响
+
+      // 飞机票
+      const flightTicket = {
+        queryTicket() {
+          console.log("查询飞机票");
+        }
+      };
+
+      // 汽车票
+      const busTicket = {
+        queryTicket() {
+          console.log("查询汽车票");
+        }
+      };
+
+      // 火车票
+      const trainTicket = {
+        queryTicket() {
+          console.log("查询火车票");
+        }
+      };
+
+      // 轮船票
+      const boatTicket = {
+        queryTicket() {
+          console.log("查询轮船票");
+        }
+      };
+
+      
+
+      // 张策 对象命名为 flightTicket
+      // 查询机票
+      // function queryTicket() {
+      //   // 查询机票
+      //   console.log('查询机票')
+      // }
+
+      // function queryCity() {
+      //   // 查询机票城市
+      // }
+
+      // function selectDate() {
+      //  // 查询机票日期
+      // }
+
+      // 国峰 汽车票 对象命名为  busTicket
+      // function queryTicket() {
+      //   // 查询汽车票
+      //   console.log('查询汽车票')
+      // }
+
+      // function queryCity() {
+      //   // 查询汽车票城市
+      // }
+
+      // function selectDate() {
+      //   // 查询汽车票日期
+      // }
+
+      // 张华 火车票 trainTicket
+      // function queryTicket() {
+      //   // 查询火车票
+      //   console.log(`查询火车票`)
+      // }
+
+      // function queryCity() {
+      //   // 查询火车票城市
+      // }
+
+      // function selectDate() {
+      //   // 查询火车票日期
+      // }
+
+      //  var obj1 = {
+      //    name: 'obj1'
+      //  }
+
+      //  var obj2 = {
+      //    name: 'obj2'
+      //  }
+    </script>
+  </body>
+</html>

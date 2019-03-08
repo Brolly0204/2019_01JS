@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 学员信息管理
+
+      const ahua = {
+        name: "华哥",
+        hobby: "吃饭 睡觉 打豆豆",
+        sayHi() {
+          console.log(`my name is ${this.name}, I like ${this.hobby}`);
+        }
+      };
+      ahua.sayHi();
+
+      const afeng = {
+        name: "峰哥",
+        hobby: "吃饭 睡觉 打阿华",
+        sayHi() {
+          console.log(`my name is ${this.name}, I like ${this.hobby}`);
+        }
+      };
+      afeng.sayHi();
+
+
+      // 工厂模式 将冗余代码 封装在函数里 
+      // 每个人使用时 只需要调用这个工厂函数 传递相应参数
+      function createProfile(name, hobby) {
+        return {
+          name,
+          hobby,
+          sayHi() {
+            console.log(`my name is ${this.name}, I like ${this.hobby}`);
+          }
+        };
+      }
+      
+      const linxing = createProfile('linxing', '唱歌 打游戏')
+      console.log(linxing)
+
+      const ace = createProfile('zhangce', 'good good study day day up')
+
+      console.log(ace)
+    </script>
+  </body>
+</html>

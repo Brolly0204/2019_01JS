@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 面向对象编程（oop）
+    // 在JS中把所有事物 抽象成一个对象（对象就是基本单元）
+    // 在对象里 封装很多 属性方法 供我们来使用
+
+    // 类 (人类 植物类 动物类)
+    // 实例 类中的具体个体 （每个人属于人类 每个人都是人类的实例）
+
+    // Array String Object Number 都是内置类
+    // 每个类都有一个prototype属性 它的属性值是一个对象
+    // Array.prototype 这里保存的都是数组的方法
+    // String.prototype 这里保存的都是字符串的方法
+
+    // 对于数组方法 每个数组都可以使用
+    // 对于字符串方法 每个字符串都可以使用
+
+    // 每个数组都是 Array这个类的实例
+
+    const arr1 = [1, 2]
+    const arr2 = [3, 4]
+
+    // instanceof 检测一个实例 是否属于这个类
+    // 实例 instanceof 类
+    // console.log(arr1 instanceof Array)
+    // console.log(arr2 instanceof Array)
+    // console.log([] instanceof Array)
+
+    const obj1 = {id: 1}
+    // console.log(obj1 instanceof Object)
+   
+    // Object 基类 一切事物都是对象（万物皆对象）
+    console.log(arr1 instanceof Object)
+
+    function fe() {
+
+    }
+    console.log(fe instanceof Function)
+    console.log(fe instanceof Object)
+    console.log(Function instanceof Object)
+
+    // Object基类
+    // Array Number Function String
+    // 在每个类的prototype对象中 保存很多属性方法 供自己的实例来使用
+
+    // 我们也可以创建一个属于自己的自定义类
+
+    // 面向对象
+    // 封装 在类上封装属性方法 供实例使用
+    // 继承 子类继承父类
+    // 多态 重载和重写 重载（同一接口不同的实现）重写（子类重写父类属性方法）
+
+
+  </script>
+</body>
+</html>
